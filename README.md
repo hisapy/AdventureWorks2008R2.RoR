@@ -23,6 +23,11 @@ Para usar [TinyTDS](https://github.com/rails-sqlserver/tiny_tds/blob/master/READ
   
 Los modelos se crearán usando el script reverse_scaffold, el cual estará disponible en el directorio *script* de la aplicación, en otras palabras, se usarán las tablas de la BD para crear los modelos inicialmente.
 
+A continuación se detalla el proceso llevado a cabo para generar el código inicial de la aplicación:
+
+1.	Se creó la aplicación usando rails new AdventureWorks2008R2.RoR
+2.	Se clónó el repositorio https://github.com/rails-sqlserver/tiny_tds y se ejecutaron los comandos como se indica en https://github.com/rails-sqlserver/tiny_tds#using-miniportile
+3.  
 
 
 
