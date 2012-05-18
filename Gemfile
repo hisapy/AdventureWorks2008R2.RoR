@@ -36,3 +36,13 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
+
+# TinyTDS using MiniPortile
+gem 'tiny_tds'
+
+# SQL Server Adapter for Rails ActiveRecord
+gem 'activerecord-sqlserver-adapter'
+
+# Ruby ODBC
+# gem 'ruby-odbc'
+
