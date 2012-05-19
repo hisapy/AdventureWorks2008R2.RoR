@@ -27,8 +27,18 @@ A continuación se detalla el proceso llevado a cabo para generar el código ini
 
 1.	Se creó la aplicación usando rails new AdventureWorks2008R2.RoR
 2.	Se clónó (se bajó de Internet usando git, SmartGit en Windows y Github for Mac and OS X) el repositorio https://github.com/rails-sqlserver/tiny_tds y se ejecutaron los comandos como se indica en https://github.com/rails-sqlserver/tiny_tds#using-miniportile. Para ejecutar dichos hay que ir a la directorio del proyecto; cd tiny_tds
-3.  Se agregaron al Gemfile del proyecto AdventureWorks2008R2.RoR las dependencias en tiny_tds y activerecord-sql-server adapter (Ver el archivo Gemfile)
-4.	Se ejecutó el comando bundle install y se para instalar dichas dependencias. Estoy hay que hacerlo en el directorio del proyecto; cd AdventureWorks2008R2.
+3. 	Se creó el proyecto con el comando *rails new AdventureWorks2008R2.RoR* . Lo del .(punto) antes de la palabra RoR tiene un efecto raro pero al parecer no afecta el funcionamiento.
+4.  Se agregaron al Gemfile del proyecto AdventureWorks2008R2.RoR las dependencias en tiny_tds y activerecord-sql-server adapter (Ver el archivo Gemfile)
+5.	Se ejecutó el comando bundle install y se para instalar dichas dependencias. Estoy hay que hacerlo en el directorio del proyecto; cd AdventureWorks2008R2.
+6. 	Se configuró el archivo de configuración database.yml tal como se especifica en https://github.com/rails-sqlserver/activerecord-sqlserver-adapter/wiki/Using-TinyTds (ver el archivo config/database.yml y adaptar la configuración según su entorno y su sistema)
+7.	Se ejecutó script/scaffold para crear los modelos a partir de las tablas que están en la BD AdventureWorks2008R2. Por ejemplo *ruby script/reverse_scaffold --verbose HumanResources.Employee Employee* crea el modelo, vista y controlador para la entidad HumanResources.Employee. Para que el modelo ActiveRecord funcione, es necesario agregar el nombre de la tabla, quedando el archivo models/employee.rb de la siguiente manera:
+
+````ruby
+class Employee < ActiveRecord::Base
+  set_table_name "HumanResources.Employee"
+end
+```
+
 
 
 
