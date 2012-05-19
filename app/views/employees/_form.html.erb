@@ -1,0 +1,81 @@
+<%= form_for(@employee) do |f| %>
+  <% if @employee.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
+
+      <ul>
+      <% @employee.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :BusinessEntityID %><br />
+    <%= f.number_field :BusinessEntityID %>
+  </div>
+  <div class="field">
+    <%= f.label :NationalIDNumber %><br />
+    <%= f.text_field :NationalIDNumber %>
+  </div>
+  <div class="field">
+    <%= f.label :LoginID %><br />
+    <%= f.text_field :LoginID %>
+  </div>
+  <div class="field">
+    <%= f.label :OrganizationNode %><br />
+    <%= f.text_field :OrganizationNode %>
+  </div>
+  <div class="field">
+    <%= f.label :OrganizationLevel %><br />
+    <%= f.number_field :OrganizationLevel %>
+  </div>
+  <div class="field">
+    <%= f.label :JobTitle %><br />
+    <%= f.text_field :JobTitle %>
+  </div>
+  <div class="field">
+    <%= f.label :BirthDate %><br />
+    <%= f.date_select :BirthDate %>
+  </div>
+  <div class="field">
+    <%= f.label :MaritalStatus %><br />
+    <%= f.text_field :MaritalStatus %>
+  </div>
+  <div class="field">
+    <%= f.label :Gender %><br />
+    <%= f.text_field :Gender %>
+  </div>
+  <div class="field">
+    <%= f.label :HireDate %><br />
+    <%= f.date_select :HireDate %>
+  </div>
+  <div class="field">
+    <%= f.label :SalariedFlag %><br />
+    <%= f.check_box :SalariedFlag %>
+  </div>
+  <div class="field">
+    <%= f.label :VacationHours %><br />
+    <%= f.number_field :VacationHours %>
+  </div>
+  <div class="field">
+    <%= f.label :SickLeaveHours %><br />
+    <%= f.number_field :SickLeaveHours %>
+  </div>
+  <div class="field">
+    <%= f.label :CurrentFlag %><br />
+    <%= f.check_box :CurrentFlag %>
+  </div>
+  <div class="field">
+    <%= f.label :rowguid %><br />
+    <%= f.text_field :rowguid %>
+  </div>
+  <div class="field">
+    <%= f.label :ModifiedDate %><br />
+    <%= f.datetime_select :ModifiedDate %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

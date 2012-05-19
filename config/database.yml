@@ -7,12 +7,11 @@
 #   Ver el archivo APP_PATH/Gemfile
 development:
   adapter: sqlserver
-  dataserver: 'localhost\SQLEXPRESS'
-  database AdventureWorks2008R2
+  dataserver: '192.168.1.103\SQLEXPRESS'
+  database: AdventureWorks2008R2
   username: sa
-  password: 123456
+  password: "123456"
   timeout: 5000
-
 
 
 # Warning: The database defined as "test" will be erased and

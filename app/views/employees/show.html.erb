@@ -1,0 +1,85 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Businessentityid:</b>
+  <%= @employee.BusinessEntityID %>
+</p>
+
+<p>
+  <b>Nationalidnumber:</b>
+  <%= @employee.NationalIDNumber %>
+</p>
+
+<p>
+  <b>Loginid:</b>
+  <%= @employee.LoginID %>
+</p>
+
+<p>
+  <b>Organizationnode:</b>
+  <%= @employee.OrganizationNode %>
+</p>
+
+<p>
+  <b>Organizationlevel:</b>
+  <%= @employee.OrganizationLevel %>
+</p>
+
+<p>
+  <b>Jobtitle:</b>
+  <%= @employee.JobTitle %>
+</p>
+
+<p>
+  <b>Birthdate:</b>
+  <%= @employee.BirthDate %>
+</p>
+
+<p>
+  <b>Maritalstatus:</b>
+  <%= @employee.MaritalStatus %>
+</p>
+
+<p>
+  <b>Gender:</b>
+  <%= @employee.Gender %>
+</p>
+
+<p>
+  <b>Hiredate:</b>
+  <%= @employee.HireDate %>
+</p>
+
+<p>
+  <b>Salariedflag:</b>
+  <%= @employee.SalariedFlag %>
+</p>
+
+<p>
+  <b>Vacationhours:</b>
+  <%= @employee.VacationHours %>
+</p>
+
+<p>
+  <b>Sickleavehours:</b>
+  <%= @employee.SickLeaveHours %>
+</p>
+
+<p>
+  <b>Currentflag:</b>
+  <%= @employee.CurrentFlag %>
+</p>
+
+<p>
+  <b>Rowguid:</b>
+  <%= @employee.rowguid %>
+</p>
+
+<p>
+  <b>Modifieddate:</b>
+  <%= @employee.ModifiedDate %>
+</p>
+
+
+<%= link_to 'Edit', edit_employee_path(@employee) %> |
+<%= link_to 'Back', employees_path %>

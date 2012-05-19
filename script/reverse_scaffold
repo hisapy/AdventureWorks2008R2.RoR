@@ -16,8 +16,8 @@
 # == Options
 #   -h, --help          Displays help message
 #   -r, --rspec         Generates rspec_scaffold
-#   -V, --verbose       Outputs the command but doesn't execute it
-#   -v, --version
+#   -V, --verbose       Outputs the command being executed
+#   -v, --version       Display version information about this script
 #
 #
 # == Author
@@ -60,12 +60,10 @@ class ReverseScaffold
     options.pk = 'id'
     options.verbose = false
     options.skip_migration = ''
-    options.table_name = args[0]
-    options.class_name = args[1]
     options.command_name = 'scaffold'
     
     opts = OptionParser.new do |opts|
-      opts.banner = "Usage: ruby reverse_scaffold [options]"
+      opts.banner = "Usage: ruby reverse_scaffold table_name ModelName [options]"
 
       opts.separator ""
       opts.separator "Specific options:"
@@ -104,8 +102,12 @@ class ReverseScaffold
     end
     if args.length == 0
       puts opts
+      exit
     end
     opts.parse!(args) unless args.length == 0
+    #Finally, the two args not evaluated by OptionParser will be table_name and class_name respectively
+    options.table_name = args[0]
+    options.class_name = args[1]
     options
   end  # parse()
 

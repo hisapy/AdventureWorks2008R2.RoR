@@ -1,0 +1,37 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  BusinessEntityID: 1
+  NationalIDNumber: MyString
+  LoginID: MyString
+  OrganizationNode: MyString
+  OrganizationLevel: 1
+  JobTitle: MyString
+  BirthDate: 2012-05-18
+  MaritalStatus: MyString
+  Gender: MyString
+  HireDate: 2012-05-18
+  SalariedFlag: false
+  VacationHours: 1
+  SickLeaveHours: 1
+  CurrentFlag: false
+  rowguid: MyString
+  ModifiedDate: 2012-05-18 23:13:45
+
+two:
+  BusinessEntityID: 1
+  NationalIDNumber: MyString
+  LoginID: MyString
+  OrganizationNode: MyString
+  OrganizationLevel: 1
+  JobTitle: MyString
+  BirthDate: 2012-05-18
+  MaritalStatus: MyString
+  Gender: MyString
+  HireDate: 2012-05-18
+  SalariedFlag: false
+  VacationHours: 1
+  SickLeaveHours: 1
+  CurrentFlag: false
+  rowguid: MyString
+  ModifiedDate: 2012-05-18 23:13:45
