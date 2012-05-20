@@ -12,6 +12,7 @@ development:
   username: sa
   password: "123456"
   timeout: 5000
+  encoding: utf8
 
 
 # Warning: The database defined as "test" will be erased and

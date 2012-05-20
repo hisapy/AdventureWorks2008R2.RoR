@@ -1,0 +1,65 @@
+<%= form_for(@person) do |f| %>
+  <% if @person.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@person.errors.count, "error") %> prohibited this person from being saved:</h2>
+
+      <ul>
+      <% @person.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :PersonType %><br />
+    <%= f.text_field :PersonType %>
+  </div>
+  <div class="field">
+    <%= f.label :NameStyle %><br />
+    <%= f.check_box :NameStyle %>
+  </div>
+  <div class="field">
+    <%= f.label :Title %><br />
+    <%= f.text_field :Title %>
+  </div>
+  <div class="field">
+    <%= f.label :FirstName %><br />
+    <%= f.text_field :FirstName %>
+  </div>
+  <div class="field">
+    <%= f.label :MiddleName %><br />
+    <%= f.text_field :MiddleName %>
+  </div>
+  <div class="field">
+    <%= f.label :LastName %><br />
+    <%= f.text_field :LastName %>
+  </div>
+  <div class="field">
+    <%= f.label :Suffix %><br />
+    <%= f.text_field :Suffix %>
+  </div>
+  <div class="field">
+    <%= f.label :EmailPromotion %><br />
+    <%= f.number_field :EmailPromotion %>
+  </div>
+  <div class="field">
+    <%= f.label :AdditionalContactInfo %><br />
+    <%= f.text_field :AdditionalContactInfo %>
+  </div>
+  <div class="field">
+    <%= f.label :Demographics %><br />
+    <%= f.text_field :Demographics %>
+  </div>
+  <div class="field">
+    <%= f.label :rowguid %><br />
+    <%= f.text_field :rowguid %>
+  </div>
+  <div class="field">
+    <%= f.label :ModifiedDate %><br />
+    <%= f.datetime_select :ModifiedDate %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,65 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Persontype:</b>
+  <%= @person.PersonType %>
+</p>
+
+<p>
+  <b>Namestyle:</b>
+  <%= @person.NameStyle %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @person.Title %>
+</p>
+
+<p>
+  <b>Firstname:</b>
+  <%= @person.FirstName %>
+</p>
+
+<p>
+  <b>Middlename:</b>
+  <%= @person.MiddleName %>
+</p>
+
+<p>
+  <b>Lastname:</b>
+  <%= @person.LastName %>
+</p>
+
+<p>
+  <b>Suffix:</b>
+  <%= @person.Suffix %>
+</p>
+
+<p>
+  <b>Emailpromotion:</b>
+  <%= @person.EmailPromotion %>
+</p>
+
+<p>
+  <b>Additionalcontactinfo:</b>
+  <%= @person.AdditionalContactInfo %>
+</p>
+
+<p>
+  <b>Demographics:</b>
+  <%= @person.Demographics %>
+</p>
+
+<p>
+  <b>Rowguid:</b>
+  <%= @person.rowguid %>
+</p>
+
+<p>
+  <b>Modifieddate:</b>
+  <%= @person.ModifiedDate %>
+</p>
+
+
+<%= link_to 'Edit', edit_person_path(@person) %> |
+<%= link_to 'Back', people_path %>

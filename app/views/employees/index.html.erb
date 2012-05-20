@@ -2,7 +2,6 @@
 
 <table>
   <tr>
-    <th>Businessentityid</th>
     <th>Nationalidnumber</th>
     <th>Loginid</th>
     <th>Organizationnode</th>
@@ -25,10 +24,9 @@
 
 <% @employees.each do |employee| %>
   <tr>
-    <td><%= employee.BusinessEntityID %></td>
     <td><%= employee.NationalIDNumber %></td>
-    <td><%= employee.LoginID %></td>
-    <td><%= employee.OrganizationNode %></td>
+    <td><%= employee.LoginID.force_encoding(Encoding::ASCII_8BIT) %></td>	
+    <td><%= employee.OrganizationNode.inspect %></td>
     <td><%= employee.OrganizationLevel %></td>
     <td><%= employee.JobTitle %></td>
     <td><%= employee.BirthDate %></td>

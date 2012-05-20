@@ -1,11 +1,6 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Businessentityid:</b>
-  <%= @employee.BusinessEntityID %>
-</p>
-
-<p>
   <b>Nationalidnumber:</b>
   <%= @employee.NationalIDNumber %>
 </p>
@@ -17,7 +12,7 @@
 
 <p>
   <b>Organizationnode:</b>
-  <%= @employee.OrganizationNode %>
+  <%= @employee.OrganizationNode.inspect %>
 </p>
 
 <p>

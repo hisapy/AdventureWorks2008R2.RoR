@@ -1,4 +1,6 @@
 AdventureWorks2008R2Ror::Application.routes.draw do
+  resources :people
+
   get "home/index"
 
   resources :employees

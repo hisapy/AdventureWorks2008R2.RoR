@@ -31,13 +31,38 @@ A continuación se detalla el proceso llevado a cabo para generar el código ini
 4.  Se agregaron al Gemfile del proyecto AdventureWorks2008R2.RoR las dependencias en tiny_tds y activerecord-sql-server adapter (Ver el archivo Gemfile)
 5.	Se ejecutó el comando bundle install y se para instalar dichas dependencias. Estoy hay que hacerlo en el directorio del proyecto; cd AdventureWorks2008R2.
 6. 	Se configuró el archivo de configuración database.yml tal como se especifica en https://github.com/rails-sqlserver/activerecord-sqlserver-adapter/wiki/Using-TinyTds (ver el archivo config/database.yml y adaptar la configuración según su entorno y su sistema)
-7.	Se ejecutó script/scaffold para crear los modelos a partir de las tablas que están en la BD AdventureWorks2008R2. Por ejemplo *ruby script/reverse_scaffold --verbose HumanResources.Employee Employee* crea el modelo, vista y controlador para la entidad HumanResources.Employee. Para que el modelo ActiveRecord funcione, es necesario agregar el nombre de la tabla, quedando el archivo models/employee.rb de la siguiente manera:
+7.	Se ejecutó [script/reverse_scaffold](https://github.com/hisapy/reverse_scaffold) para crear los modelos a partir de las tablas que están en la BD AdventureWorks2008R2. Por ejemplo *ruby script/reverse_scaffold HumanResources.Employee Employee --primary-key BusinessEntityID --verbose* crea el modelo, vista y controlador para la entidad HumanResources.Employee. Para que el modelo ActiveRecord funcione, es necesario agregar el nombre de la tabla, y especificar la clave primary (que en el caso de esta BD no es como la convención RoR o sea, :id) quedando el archivo models/employee.rb de la siguiente manera:
 
 ````ruby
 class Employee < ActiveRecord::Base
   set_table_name "HumanResources.Employee"
+  set_primary_key :BusinessEntityID
 end
 ```
+
+Problemas Conocidos y sus Soluciones (si es que ya hay)
+--------------------------------------------------------
+1. Problemas de Encoding y tipo de dato hierarchyid
+
+	La tabla HumanResources.Employee contiene una columna llamada LoginID. Para poder mostrar correctamente los datos de esta columna en la vista employees.index.html.erb, sin causar errores de Encoding, fue necesario ejecutar el metodo *force_encoding* en los valores de dicha columna. También, para mostrar como texto los datos de la columna HumanResources.Employee.OrganizationNode, cuyo tipo de dato es [hierarchyid](http://msdn.microsoft.com/en-us/library/bb677213(v=sql.105).aspx), fue necesario usar el método inspect en los valores de dicha columna, o sino se mostraban simplemente caracteres raros en la página generada, por ejemplo:
+
+````ruby
+<td><%= employee.LoginID.force_encoding(Encoding::ASCII_8BIT) %></td>	
+<td><%= employee.parseOrganizationNode %></td>
+```
+
+	La modificación correspondiente al modelo es 
+
+````ruby
+	class Employee < ActiveRecord::Base
+	  set_table_name "HumanResources.Employee"
+	  set_primary_key :BusinessEntityID
+
+	  def parseOrganizationNode()
+	    self.OrganizationNode.inspect
+	  end
+	end
+````
 
 
 
