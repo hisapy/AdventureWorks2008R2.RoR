@@ -44,9 +44,9 @@ Problemas Conocidos y sus Soluciones (si es que ya hay)
 --------------------------------------------------------
 1. Problemas de Encoding y tipo de dato hierarchyid
 
-	La tabla HumanResources.Employee contiene una columna llamada LoginID. Para poder mostrar correctamente los datos de esta columna en la vista employees.index.html.erb, sin causar errores de Encoding, fue necesario ejecutar el metodo *force_encoding* en los valores de dicha columna. También, para mostrar como texto los datos de la columna HumanResources.Employee.OrganizationNode, cuyo tipo de dato es [hierarchyid](http://msdn.microsoft.com/en-us/library/bb677213(v=sql.105).aspx), fue necesario usar el método inspect en los valores de dicha columna, o sino se mostraban simplemente caracteres raros en la página generada, por ejemplo:
+	La tabla HumanResources.Employee contiene una columna llamada LoginID. Para poder mostrar correctamente los datos de esta columna en la vista employees.index.html.erb, sin causar errores de Encoding, fue necesario ejecutar el metodo *force_encoding* en los valores de dicha columna. También, para mostrar como texto los datos de la columna HumanResources.Employee.OrganizationNode, cuyo tipo de dato es [hierarchyid](http://msdn.microsoft.com/en-us/library/bb677213\(v=sql.105\).aspx), fue necesario usar el método inspect en los valores de dicha columna, o sino se mostraban simplemente caracteres raros en la página generada, por ejemplo:
 
-````ruby
+````erb
 <td><%= employee.LoginID.force_encoding(Encoding::ASCII_8BIT) %></td>	
 <td><%= employee.parseOrganizationNode %></td>
 ```
@@ -55,12 +55,13 @@ Problemas Conocidos y sus Soluciones (si es que ya hay)
 
 ````ruby
 	class Employee < ActiveRecord::Base
-	  set_table_name "HumanResources.Employee"
-	  set_primary_key :BusinessEntityID
-
-	  def parseOrganizationNode()
-	    self.OrganizationNode.inspect
-	  end
+  		set_table_name "HumanResources.Employee"
+  		set_primary_key :BusinessEntityID
+  
+  		# Parses the OrganizationNode column to be displayed as text in the browser.
+  		def parseOrganizationNode()
+    		self.OrganizationNode.inspect
+  		end
 	end
 ````
 
