@@ -2,7 +2,8 @@
 
 <table>
   <tr>
-    <th>Nationalidnumber</th>
+	<th>First Name</th>
+	<th>Nationalidnumber</th>
     <th>Loginid</th>
     <th>Organizationnode</th>
     <th>Organizationlevel</th>
@@ -21,11 +22,11 @@
     <th></th>
     <th></th>
   </tr>
-
 <% @employees.each do |employee| %>
   <tr>
+	<td><%= employee.person.FirstName %></td>
     <td><%= employee.NationalIDNumber %></td>
-    <td><%= employee.LoginID.force_encoding(Encoding::ASCII_8BIT) %></td>	
+    <td><%= employee.LoginID %></td>	
     <td><%= employee.OrganizationNode.inspect %></td>
     <td><%= employee.OrganizationLevel %></td>
     <td><%= employee.JobTitle %></td>
@@ -49,3 +50,8 @@
 <br />
 
 <%= link_to 'New Employee', new_employee_path %>
+
+<br />
+<br />
+
+<%= will_paginate @employees %>
