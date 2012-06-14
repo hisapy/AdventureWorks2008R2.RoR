@@ -2,46 +2,29 @@
 
 <table>
   <tr>
-    <th>Nationalidnumber</th>
-    <th>Loginid</th>
-    <th>Organizationnode</th>
-    <th>Organizationlevel</th>
-    <th>Jobtitle</th>
-    <th>Birthdate</th>
-    <th>Maritalstatus</th>
-    <th>Gender</th>
-    <th>Hiredate</th>
-    <th>Salariedflag</th>
-    <th>Vacationhours</th>
-    <th>Sickleavehours</th>
-    <th>Currentflag</th>
-    <th>Rowguid</th>
-    <th>Modifieddate</th>
-    <th></th>
-    <th></th>
-    <th></th>
+	<th>First Name</th>
+	<th>Middle Name</th>
+	<th>Last Name</th>
+	<th>Job Title</th>
+	<th>Birthdate</th>
+	<th>Email</th>
+	<th>Gender</th>
+	<th>Vacations Hours</th>
+
+
   </tr>
 
-<% @employees.each do |employee| %>
+<% @employees.each do |e| %>
   <tr>
-    <td><%= employee.NationalIDNumber %></td>
-    <td><%= employee.LoginID.force_encoding(Encoding::ASCII_8BIT) %></td>	
-    <td><%= employee.OrganizationNode.inspect %></td>
-    <td><%= employee.OrganizationLevel %></td>
-    <td><%= employee.JobTitle %></td>
-    <td><%= employee.BirthDate %></td>
-    <td><%= employee.MaritalStatus %></td>
-    <td><%= employee.Gender %></td>
-    <td><%= employee.HireDate %></td>
-    <td><%= employee.SalariedFlag %></td>
-    <td><%= employee.VacationHours %></td>
-    <td><%= employee.SickLeaveHours %></td>
-    <td><%= employee.CurrentFlag %></td>
-    <td><%= employee.rowguid %></td>
-    <td><%= employee.ModifiedDate %></td>
-    <td><%= link_to 'Show', employee %></td>
-    <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
-    <td><%= link_to 'Destroy', employee, confirm: 'Are you sure?', method: :delete %></td>
+	<td><%= e.Firstname %></td>
+	<td><%= e.Middlename %></td>
+	<td><%= e.Lastname %></td>
+	<td><%= e.Jobtitle %></td>
+	<td><%= e.Birthdate %></td>
+	<td><%= e.EmailAddress %></td>
+	<td><%= e.Gender %></td>
+	<td><%= e.Vacationhours %></td>    
+      
   </tr>
 <% end %>
 </table>
