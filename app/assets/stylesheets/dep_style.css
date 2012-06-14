@@ -1,0 +1,42 @@
+/* TaniaPaiva 2012*/
+
+
+body{
+    font-family:verdana;
+    line-height:200%;
+}
+
+
+table{
+    border-style:inset;
+    border-width: 2px;
+    border-color:#969696;
+    line-height:200%;
+    font-family:verdana;
+}
+
+
+
+.roundBorder{
+    border.radius:10px;
+    -moz-border-radius:10px;
+    -webkit-border-radius:10px;
+}
+
+#div_links{
+	float:right;
+	
+}
+
+#ul_menu li a{
+	font-family:verdana;
+	font-size:15px;
+	float:left;
+	background-color:#969696;
+	color:#fff;
+}
+
+#li_clean{
+		list-style:none !important;
+}
+
