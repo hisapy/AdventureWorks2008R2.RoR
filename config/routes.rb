@@ -1,15 +1,29 @@
-AdventureWorks2008R2Ror::Application.routes.draw do
-  get "peopleand_employee/PeopleandEmployee"
-
-  resources :departments
-
-  # match 'people/edit/:id' => 'people#edit'
+AdventureWorks2008R2Ror::Application.routes.draw do  
+  resources :employee_department_histories 
+  resources :shifts
   resources :people
 
   get "home/index"
-
-  resources :employees
-
+  
+  resources :employees do
+	collection do
+		get 'department'
+		post 'change_page'
+	end
+  end
+  
+  resources :departments do
+#     member do
+#       get 'short'
+#       post 'toggle'
+#     end
+   collection do
+	 get 'search'
+	 post 'results'
+   end
+ end
+ 
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

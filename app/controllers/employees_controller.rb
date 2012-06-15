@@ -1,13 +1,34 @@
 class EmployeesController < ApplicationController
+  
+  # POST/employees
+  def change_page
+	pp = params[:per_page];
+	pp = (pp if Integer(pp) rescue 10).to_i;
+	session[:per_page] = pp <= 0 ? 10 : pp;
+	respond_to do |format|
+		format.html { redirect_to :back }
+	end
+  end
+  
+  # GET /employees
+  def department
+	@employees = Employee.paginate( :page => params[:page], :per_page => 10, :order => "BusinessEntityID DESC" );
+    respond_to do |format|
+      format.html {  render action: "department" } # department.html.erb
+    end
+  end
+  
+  
   # GET /employees
   # GET /employees.json
   def index
-	@last = 0 unless @last != nil;
-	@querry = Employee.find_by_sql("SELECT Firstname, Middlename, Lastname, Jobtitle, Birthdate, Gender, Vacationhours,
- EmailAddress FROM HumanResources.Employee, Person.Person, Person.EmailAddress WHERE HumanResources.Employee.BusinessEntityID = Person.Person.BusinessEntityID AND Person.EmailAddress.BusinessEntityID = Person.Person.BusinessEntityID")
-    @employees = @querry
+   @employees = Employee.paginate(
+		:page => params[:page], 
+		:per_page => session[:per_page], 
+	 :order => "BusinessEntityID DESC" );
+
     respond_to do |format|
-      format.html # index.html.erb
+      format.html {  render action: "index" } # index.html.erb
       format.json { render json: @employees }
     end
   end
@@ -15,13 +36,13 @@ class EmployeesController < ApplicationController
   # GET /employees/1
   # GET /employees/1.json
   def show
- @employees = Employee.find_by_sql("SELECT Firstname, Middlename, Lastname, Jobtitle, Birthdate, Gender, Vacationhours,
+
+    @employees = Employee.find_by_sql("SELECT Firstname, Middlename, Lastname, Jobtitle, Birthdate, Gender, Vacationhours,
  EmailAddress FROM HumanResources.Employee, Person.Person, Person.EmailAddress
  WHERE HumanResources.Employee.BusinessEntityID = Person.Person.BusinessEntityID AND Person.EmailAddress.BusinessEntityID = Person.Person.BusinessEntityID").find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @employee }
+      format.json { render json: @employees }
     end
   end
 
@@ -38,7 +59,7 @@ class EmployeesController < ApplicationController
 
   # GET /employees/1/edit
   def edit
-    @employee =  Employee.find(params[:id])
+     @employee = Employee.find(params[:id])
   end
 
   # POST /employees
@@ -85,3 +106,29 @@ class EmployeesController < ApplicationController
     end
   end
 end
+
+
+
+	#@employees = Employee.all;
+	#@people = Person.all;
+	#@last = 0 unless @last != nil;
+    #@employees = Employee.select("ROW_NUMBER() as page").where("page BETWEEN ?  AND ? ",@last, @last + 10);
+	#@posts = Post.where("content like ? or id = ?", "%" + params[:busqueda] + "%", params[:busqueda])
+	#.all
+	#@person.all
+
+	
+	
+		# @employees = Employee.find_by_sql("
+			# SELECT e.BusinessEntityID, Firstname, Middlename, Lastname, Jobtitle, Birthdate, Gender, Vacationhours, EmailAddress
+			# FROM HumanResources.Employee as e, Person.Person as p, Person.EmailAddress as ea
+			# WHERE e.BusinessEntityID = p.BusinessEntityID AND ea.BusinessEntityID = p.BusinessEntityID")
+			
+	# @new_employee = Employee.first;
+	#.paginate(:page => params[:page], :per_page => 30);
+			
+	#.paginate( :page => params[:page], :per_page => 10, :order => "Firstname DESC" );
+	
+	#.paginate( :page => params[:page], :per_page => 10, :order => "Firstname DESC" );
+	#:locals => {:article =>  article_class.find(article_id) }
+	#.paginate :page => params[:page], :order => 'fecha DESC'

@@ -1,62 +1,53 @@
+<div class="container" >
 
-<head>
-<%= stylesheet_link_tag 'blueprint/screen', :media => 'screen' %>
-<%= stylesheet_link_tag 'blueprint/print', :media => 'print' %>
-<%= stylesheet_link_tag 'dep_style', "application", :media => 'all'%>
+	<div id="div_header">
+		<h1>Departments</h1>
+		<hr>
+	</div>
 
-  <!--[if lt IE 8]>
-    <%= stylesheet_link_tag 'blueprint/ie' %>
-  <![endif]-->
-</head>
-
-
- <body>
-  <div class="container" >
-
-    <div id="div_header">
-      <h1>Departments</h1>
-	  <hr>
-    </div>
-	
 	<!--<div class="menu">
-		<ul id="ul_menu">
-			<li id="li_clean"><a>Empleados</a></li>
-			<li id="li_clean"><a>Departmentos</a></li>
-		</ul>
+	<ul id="ul_menu">
+	<li id="li_clean"><a>Empleados</a></li>
+	<li id="li_clean"><a>Departmentos</a></li>
+	</ul>
 	</div>-->
 
-    <div id="div_main_content">
+	<div id="div_main_content">
 		<div class="span-20">
-		  <table class="roundBorder">
-			<tr>
-			  <th>Name</th>
-			  <th>Groupname</th>
-			  <th>Modifieddate</th>
-			  <th></th>
-			  <th></th>
-			  <th></th>
-			</tr>
+			<table class="roundBorder">
+				<tr>
+					<th>Name</th>
+					<th>Groupname</th>
+					<th>Modifieddate</th>
+					<th></th>
+					<th></th>
+					<th></th>
+				</tr>
 
-		  <% @departments.each do |department| %>
-			<tr>
-			  <td><%= department.Name %></td>
-			  <td><%= department.GroupName %></td>
-			  <td><%= department.ModifiedDate %></td>
-			  <td><%= link_to 'Show', department %></td>
-			  <td><%= link_to 'Edit', edit_department_path(department) %></td>
-			  <td><%= link_to 'Destroy', department, confirm: 'Are you sure?', method: :delete %></td>
-			</tr>
-		  <% end %>
-		  </table>
+				<% @departments.each do |department| %>
+				<tr>
+					<td><%= department.Name %></td>
+					<td><%= department.GroupName %></td>
+					<td><%= department.ModifiedDate %></td>
+					<td><%= link_to 'Show', department %></td>
+					<td><%= link_to 'Edit', edit_department_path(department) %></td>
+					<td><%= link_to 'Destroy', department, confirm: 'Are you sure?', method: :delete %></td>
+				</tr>
+				<% end %>
+			</table>
 		</div>
-		
-	  <div class="span-3 last" id="div_links">
-		  <ul >
-			<li><%= link_to 'New Department', new_department_path %></li>
-			<br />
-			<li><%= link_to 'Search'%> <!-- falta el path para la busqueda--></li>
-		  </ul>
-	  </div>
-    </div>
-  </div >
-</body>
+
+		<div class="span-3 last" id="div_links">
+			<ul >
+				<li>
+					<%= link_to 'New Department', new_department_path %>
+				</li>
+				<br />
+				<li>
+					<%= link_to 'Search'%> <!-- falta el path para la busqueda-->
+				</li>
+			</ul>
+		</div>
+		<%= will_paginate @departments %>
+	</div>
+</div >

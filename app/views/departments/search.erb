@@ -1,0 +1,12 @@
+<h1>Buscar</h1>
+<%= form_for @department, :url => results_departments_path, :html => {:id =>'department_search', :class => 'someCSSclass'} do |f| %>
+	<li>
+		Name: <%= text_field_tag 'name' %>	
+	</li>
+	<li>
+		Group: <%= text_field_tag 'group' %>	
+	</li>
+	<li>
+		<%= f.submit 'Search!' %>
+	</li>
+<% end %>

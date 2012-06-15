@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 gem 'rails', '3.2.2'
 
@@ -46,3 +46,8 @@ gem 'activerecord-sqlserver-adapter'
 # Ruby ODBC
 # gem 'ruby-odbc'
 
+# Rails Pagination
+gem 'will_paginate'
+
+# Composite primary keys
+gem 'composite_primary_keys'#, '=3.1.0'

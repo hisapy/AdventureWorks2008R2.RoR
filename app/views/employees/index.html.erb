@@ -10,8 +10,6 @@
 	<th>Email</th>
 	<th>Gender</th>
 	<th>Vacations Hours</th>
-
-
   </tr>
 
 <% @employees.each do |e| %>
@@ -24,7 +22,6 @@
 	<td><%= e.EmailAddress %></td>
 	<td><%= e.Gender %></td>
 	<td><%= e.Vacationhours %></td>    
-      
   </tr>
 <% end %>
 </table>
@@ -32,3 +29,8 @@
 <br />
 
 <%= link_to 'New Employee', new_employee_path %>
+
+<br />
+<br />
+
+<%= will_paginate @employees %>
