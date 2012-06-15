@@ -44,10 +44,10 @@
 				</li>
 				<br />
 				<li>
-					<%= link_to 'Search'%> <!-- falta el path para la busqueda-->
+					<%= link_to 'Search', search_departments_path%> 
 				</li>
 			</ul>
 		</div>
-		<%= will_paginate @departments %>
 	</div>
+	<%= will_paginate @departments %>
 </div >
