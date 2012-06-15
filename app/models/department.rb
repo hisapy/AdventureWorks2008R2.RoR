@@ -1,5 +1,4 @@
 class Department < ActiveRecord::Base
-    set_table_name "HumanResources.Department"
-    set_primary_key :DepartmentID
-
+    self.table_name = "HumanResources.Department"
+    self.primary_key = :DepartmentID
 end
