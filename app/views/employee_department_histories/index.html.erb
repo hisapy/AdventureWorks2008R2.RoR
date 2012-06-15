@@ -1,0 +1,30 @@
+<h1>Listing employee_department_histories</h1>
+
+<table>
+  <tr>
+    <th>Departmentid</th>
+    <th>Shiftid</th>
+    <th>Startdate</th>
+    <th>Enddate</th>
+    <th>Modifieddate</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @employee_department_histories.each do |employee_department_history| %>
+  <tr>
+	<td><%= employee_department_history.employee.JobTitle %></td>
+    <td><%= employee_department_history.DepartmentID %></td>
+    <td><%= employee_department_history.ShiftID %></td>
+    <td><%= employee_department_history.StartDate %></td>
+    <td><%= employee_department_history.EndDate %></td>
+    <td><%= employee_department_history.ModifiedDate %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Employee department history', new_employee_department_history_path %>
+<%= will_paginate @employees %>

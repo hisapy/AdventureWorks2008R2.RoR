@@ -1,0 +1,37 @@
+<%= form_for(@employee_department_history) do |f| %>
+  <% if @employee_department_history.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@employee_department_history.errors.count, "error") %> prohibited this employee_department_history from being saved:</h2>
+
+      <ul>
+      <% @employee_department_history.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :DepartmentID %><br />
+    <%= f.number_field :DepartmentID %>
+  </div>
+  <div class="field">
+    <%= f.label :ShiftID %><br />
+    <%= f.number_field :ShiftID %>
+  </div>
+  <div class="field">
+    <%= f.label :StartDate %><br />
+    <%= f.date_select :StartDate %>
+  </div>
+  <div class="field">
+    <%= f.label :EndDate %><br />
+    <%= f.date_select :EndDate %>
+  </div>
+  <div class="field">
+    <%= f.label :ModifiedDate %><br />
+    <%= f.datetime_select :ModifiedDate %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

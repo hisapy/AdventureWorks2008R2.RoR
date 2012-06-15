@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Departmentid:</b>
+  <%= @employee_department_history.DepartmentID %>
+</p>
+
+<p>
+  <b>Shiftid:</b>
+  <%= @employee_department_history.ShiftID %>
+</p>
+
+<p>
+  <b>Startdate:</b>
+  <%= @employee_department_history.StartDate %>
+</p>
+
+<p>
+  <b>Enddate:</b>
+  <%= @employee_department_history.EndDate %>
+</p>
+
+<p>
+  <b>Modifieddate:</b>
+  <%= @employee_department_history.ModifiedDate %>
+</p>
+
+
+<%= link_to 'Edit', edit_employee_department_history_path(@employee_department_history) %> |
+<%= link_to 'Back', employee_department_histories_path %>

@@ -1,14 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>AdventureWorks2008R2Ror</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
+  	<title>AdventureWorks2008R2Ror</title>
+  	<%= stylesheet_link_tag    "application", :media => "all" %>
+  	<%= csrf_meta_tags %>
+  	<%= stylesheet_link_tag 'blueprint/screen', :media => 'screen' %>
+	<%= stylesheet_link_tag 'blueprint/print', :media => 'print' %>
+	<%= stylesheet_link_tag 'dep_style', "application", :media => 'all'%>
+	<!--[if lt IE 8]>
+    <%= stylesheet_link_tag 'blueprint/ie' %>
+  <![endif]-->
 </head>
 <body>
 
 <%= yield %>
 
+<% if session[:per_page] == nil
+		session[:per_page]= 10; 
+	end  #EN ESTA LINEA SE DEFINE EL VALOR POR DEFECTO QUE TENDRA LA PAGINACION	%>
+
+<%= form_tag(change_page_employees_path, :method => :post) do %>
+	<br />
+		Elements per page: <%= text_field_tag 'per_page', nil, :class=>'span-1', 
+		:style => "width:30px" 
+		%>	<%= submit_tag 'Change!' %>
+	<br />
+<% end %>
 </body>
 </html>
