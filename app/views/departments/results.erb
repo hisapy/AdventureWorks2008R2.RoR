@@ -1,0 +1,23 @@
+<h1>Resultados de la busqueda</h1>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Group Name</th>
+    <th>Modifieddate</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @departments.each do |department| %>
+  <tr>
+    <td><%= department.Name %></td>
+    <td><%= department.GroupName %></td>
+    <td><%= department.ModifiedDate %></td>
+    <td><%= link_to 'Show', department %></td>
+    <td><%= link_to 'Edit', edit_department_path(department) %></td>
+    <td><%= link_to 'Destroy', department, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+<%= will_paginate @departments %>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  DepartmentID: 1
+  ShiftID: 1
+  StartDate: 2012-06-13
+  EndDate: 2012-06-13
+  ModifiedDate: 2012-06-13 00:32:28
+
+two:
+  DepartmentID: 1
+  ShiftID: 1
+  StartDate: 2012-06-13
+  EndDate: 2012-06-13
+  ModifiedDate: 2012-06-13 00:32:28

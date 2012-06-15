@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @department.Name %>
+</p>
+
+<p>
+  <b>Groupname:</b>
+  <%= @department.GroupName %>
+</p>
+
+<p>
+  <b>Modifieddate:</b>
+  <%= @department.ModifiedDate %>
+</p>
+
+
+<%= link_to 'Edit', edit_department_path(@department) %> |
+<%= link_to 'Back', departments_path %>
