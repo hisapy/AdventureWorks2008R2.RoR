@@ -2,7 +2,7 @@ class PeopleController < ApplicationController
   # GET /people
   # GET /people.json
   def index
-    @people = Person.all
+    @people = Person.find_by_sql 'select top 10 * from Person.Person'
 
     respond_to do |format|
       format.html # index.html.erb

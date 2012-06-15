@@ -1,4 +1,9 @@
 AdventureWorks2008R2Ror::Application.routes.draw do
+  get "peopleand_employee/PeopleandEmployee"
+
+  resources :departments
+
+  # match 'people/edit/:id' => 'people#edit'
   resources :people
 
   get "home/index"

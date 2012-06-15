@@ -2,8 +2,10 @@ class EmployeesController < ApplicationController
   # GET /employees
   # GET /employees.json
   def index
-    @employees = Employee.all
-
+	@last = 0 unless @last != nil;
+	@querry = Employee.find_by_sql("SELECT Firstname, Middlename, Lastname, Jobtitle, Birthdate, Gender, Vacationhours,
+ EmailAddress FROM HumanResources.Employee, Person.Person, Person.EmailAddress WHERE HumanResources.Employee.BusinessEntityID = Person.Person.BusinessEntityID AND Person.EmailAddress.BusinessEntityID = Person.Person.BusinessEntityID")
+    @employees = @querry
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @employees }
@@ -13,7 +15,9 @@ class EmployeesController < ApplicationController
   # GET /employees/1
   # GET /employees/1.json
   def show
-    @employee = Employee.find(params[:id])
+ @employees = Employee.find_by_sql("SELECT Firstname, Middlename, Lastname, Jobtitle, Birthdate, Gender, Vacationhours,
+ EmailAddress FROM HumanResources.Employee, Person.Person, Person.EmailAddress
+ WHERE HumanResources.Employee.BusinessEntityID = Person.Person.BusinessEntityID AND Person.EmailAddress.BusinessEntityID = Person.Person.BusinessEntityID").find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -34,7 +38,7 @@ class EmployeesController < ApplicationController
 
   # GET /employees/1/edit
   def edit
-    @employee = Employee.find(params[:id])
+    @employee =  Employee.find(params[:id])
   end
 
   # POST /employees
