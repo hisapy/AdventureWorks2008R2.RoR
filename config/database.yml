@@ -7,7 +7,7 @@
 #   Ver el archivo APP_PATH/Gemfile
 development:
   adapter: sqlserver
-  dataserver: '127.0.0.1\SQLEXPRESS'
+  dataserver: 'uni-bd-2012.dev\SQLEXPRESS'
   database: AdventureWorks2008R2
   username: sa
   password: "123456"
