@@ -10,5 +10,16 @@
 
 <%= yield %>
 
+<% if session[:per_page] == nil
+		session[:per_page]= 10; 
+	end  #EN ESTA LINEA SE DEFINE EL VALOR POR DEFECTO QUE TENDRA LA PAGINACION	%>
+
+<%= form_tag(change_page_employees_path, :method => :post) do %>
+	<br />
+		Elements per page: <%= text_field_tag 'per_page', nil, :class=>'span-1', 
+		:style => "width:30px" 
+		%>	<%= submit_tag 'Change!' %>
+	<br />
+<% end %>
 </body>
 </html>
